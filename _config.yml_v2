@@ -1,0 +1,30 @@
+title: 个人学习笔记
+email: 2058443293@qq.com
+description: 一个安静的小屋
+author: zyc
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+github_username:  NctZyc
+github: https://github.com/NctZyc
+timezone: Asia/Shanghai
+# Build settings
+markdown: kramdown
+theme: minima
+ #permalink: /:year/:month/:day/:title
+plugins: [jekyll-paginate-v2,jekyll-feed,jekyll-sitemap,jekyll-seo-tag]
+pagination:
+  enabled: true
+  per_page: 9
+  permalink: '/page:num/'
+  limit: 0
+  sort_field : ' date '
+  sort_reverse : true
+exclude: ['Gemfile.lock', 'Gemfile', 'Rakefile','README.md']
+highlighter: rouge
+comments :
+  gitalk :
+    clientID : 9e4699e6988618d1a77f
+    clientSecret : 7a1ad83d16cd3836e4e62ac0066e0c20481cac2f
+    repo : BlogComment
+    owner : NctZyc
+    admin : NctZyc

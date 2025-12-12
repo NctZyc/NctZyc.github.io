@@ -1,0 +1,47 @@
+title: 个人学习笔记
+email: 2058443293@qq.com
+description: 一个安静的小屋
+author: zyc
+timezone: Asia/Shanghai
+# 站点 URL（务必无多余空格）
+baseurl: ""
+url: "https://nctzyc.github.io"
+
+# GitHub 信息
+github_username: NctZyc
+github: https://github.com/NctZyc
+
+# 构建设置
+markdown: kramdown
+theme: minima
+highlighter: rouge
+
+# 分页设置（使用 GitHub Pages 支持的 jekyll-paginate）
+paginate: 9
+paginate_path: /page:num/
+
+# 插件（仅使用 GitHub Pages 白名单插件）
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-paginate  # ← 必须显式添加，否则会报 deprecation 警告
+
+# 允许未来日期的文章（当前时间为 2025-12-11）
+future: true
+
+# 排除文件
+exclude:
+  - Gemfile.lock
+  - Gemfile
+  - Rakefile
+  - README.md
+
+# 评论配置（前端使用 Gitalk，不影响构建）
+comments:
+  gitalk:
+    clientID: 9e4699e6988618d1a77f
+    clientSecret: 7a1ad83d16cd3836e4e62ac0066e0c20481cac2f
+    repo: BlogComment
+    owner: NctZyc
+    admin: NctZyc

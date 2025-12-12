@@ -1,0 +1,281 @@
+/*!
+ * 
+ * jQuery contextMenu v2.6.3 - Plugin for simple contextMenu handling
+ * 
+ * Version: v2.6.3
+ * 
+ * Authors: Björn Brala (SWIS.nl), Rodney Rehm, Addy Osmani (patches for FF)
+ * 
+ * Web: http://swisnl.github.io/jQuery-contextMenu/
+ * 
+ * Copyright (c) 2011-2017 SWIS BV and contributors
+ * 
+ * Licensed under
+ *   MIT License http://www.opensource.org/licenses/mit-license
+ * 
+ * Date: 2017-12-30T20:11:31.302Z
+ * 
+ * 
+ */
+ html[mode="dark"] {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+html[mode="dark"] img {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+html {
+  transition: color 300ms, background-color 300ms;
+}
+ @-webkit-keyframes cm-spin {
+  0% {
+    -webkit-transform: translateY(-50%) rotate(0deg);
+    transform: translateY(-50%) rotate(0deg); }
+  100% {
+    -webkit-transform: translateY(-50%) rotate(359deg);
+    transform: translateY(-50%) rotate(359deg); } }
+
+@keyframes cm-spin {
+  0% {
+    -webkit-transform: translateY(-50%) rotate(0deg);
+    transform: translateY(-50%) rotate(0deg); }
+  100% {
+    -webkit-transform: translateY(-50%) rotate(359deg);
+    transform: translateY(-50%) rotate(359deg); } }
+
+
+
+.context-menu-icon.context-menu-hover:before {
+  color: #FFF; }
+
+.context-menu-icon.context-menu-disabled::before {
+  color: #bbbbbb; }
+
+.context-menu-icon.context-menu-icon-loading:before {
+  -webkit-animation: cm-spin 2s infinite;
+          animation: cm-spin 2s infinite; }
+
+.context-menu-icon.context-menu-icon--fa {
+  display: list-item;
+  font-family: inherit; }
+  .context-menu-icon.context-menu-icon--fa::before {
+    color: #2980B9;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1em;
+    left: 0;
+    line-height: 1;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    width: 2em; }
+  .context-menu-icon.context-menu-icon--fa.context-menu-hover:before {
+    color: #FFF; }
+  .context-menu-icon.context-menu-icon--fa.context-menu-disabled::before {
+    color: #bbbbbb; }
+
+.context-menu-list {
+  background: #FFF;
+  border: 1px solid #bebebe;
+  border-radius: 0.4em;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  display: inline-block;
+  font-family: inherit;
+  font-size: inherit;
+  list-style-type: none;
+  margin: 0.3em;
+  max-width: 26em;
+  min-width: 10em;
+  padding: 0.25em 0;
+  position: absolute; 
+  z-index: 100 ! important;
+  }
+  
+.context-menu-item {
+  background-color: #FFF;
+  color: #2F2F2F;
+  padding: 0.7em 0 0.7em 2em;
+  text-align: center;
+  position: relative;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none; }
+		  
+.context-menu-separator {
+  border-bottom: 1px solid #e6e6e6;
+  margin: 0.35em 0;
+  padding: 0; }
+
+.context-menu-item > label > input,
+.context-menu-item > label > textarea {
+  -webkit-user-select: text;
+     -moz-user-select: text;
+      -ms-user-select: text;
+          user-select: text; }
+
+.context-menu-item.context-menu-hover {
+  background-color: #2980B9;
+  color: #FFF;
+  cursor: pointer; }
+
+.context-menu-item.context-menu-disabled {
+  background-color: #FFF;
+  color: #bbbbbb;
+  cursor: default; }
+
+.context-menu-input.context-menu-hover {
+  cursor: default;
+  color: #2F2F2F; }
+
+.context-menu-submenu:after {
+  content: '';
+  border-style: solid;
+  border-width: .25em 0 .25em .25em;
+  border-color: transparent transparent transparent #2F2F2F;
+  height: 0;
+  position: absolute;
+  right: .5em;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 0;
+  z-index: 1; }
+
+/*选项样式*/
+
+.context-menu-icon-back {
+  background: url("/style/contextMenuImage/back_icon.png") no-repeat center center;
+  background-size:40px 40px;
+  float: left;
+  height:40px;
+  width:40px;
+  margin: 0 7px 4px 7px;
+  z-index: 1;
+  border-bottom: 1px solid #E6E6FA;
+ }
+
+.context-menu-icon-refresh {
+  background: url("/style/contextMenuImage/refresh_icon.png") no-repeat center center;
+  background-size:40px 40px;
+  float:left;
+  height:40px;
+  width:40px;
+  margin: 0 7px 4px 7px;
+  z-index: 1;
+  border-bottom: 1px solid #E6E6FA;
+}
+
+.context-menu-icon-forward {
+  background: url("/style/contextMenuImage/forward_icon.png") no-repeat center center;
+  background-size:40px 40px;
+  float:left;
+  height:40px;
+  width:40px;
+  margin: 0 7px 4px 7px;
+  z-index: 1;
+  border-bottom: 1px solid #E6E6FA;
+ }
+
+.context-menu-icon-home {
+  clear:both;
+  background: url("/style/contextMenuImage/home_icon.png") no-repeat center center;
+  background-position: 13% 50%;
+  background-size:30px 30px;
+}
+
+.context-menu-icon-theme { 
+  background: url("/style/contextMenuImage/theme_icon.png") no-repeat center center;
+  background-position: 13% 50%;
+  background-size:30px 30px;
+}
+
+.context-menu-icon-mode{
+  background: url("/style/contextMenuImage/night_mode_icon.png") no-repeat center center;
+  background-position: 11% 50%;
+  background-size:30px 30px;
+}
+
+.context-menu-icon-mode-light{
+  background: url("/style/contextMenuImage/daytime_mode_icon.png") no-repeat center center;
+  background-position: 11% 50%;
+  background-size:30px 30px;
+}
+
+.context-menu-icon-rest{
+	background: url("/style/contextMenuImage/rest.png") no-repeat center center;
+	background-position: 11% 50%;
+	background-size:35px 35px;
+}
+
+.context-menu-icon-rest-try{
+	background: url("/style/contextMenuImage/try.png") no-repeat center center;
+	background-position: 11% 50%;
+	background-size:35px 35px;
+}
+
+.context-menu-icon-issue {
+  background: url("/style/contextMenuImage/issue_icon.png") no-repeat center center;
+  background-position: 11% 50%;
+  background-size:30px 30px;
+ }
+
+.context-menu-icon-quit {
+
+}
+
+.context-menu-icon {
+  
+ 
+  }
+
+/**
+ * Inputs
+ */
+.context-menu-item.context-menu-input {
+  padding: .3em .6em; }
+
+/* vertically align inside labels */
+.context-menu-input > label > * {
+  vertical-align: top; }
+
+/* position checkboxes and radios as icons */
+.context-menu-input > label > input[type="checkbox"],
+.context-menu-input > label > input[type="radio"] {
+  margin-right: .4em;
+  position: relative;
+  top: .12em; }
+
+.context-menu-input > label {
+  margin: 0; }
+
+.context-menu-input > label,
+.context-menu-input > label > input[type="text"],
+.context-menu-input > label > textarea,
+.context-menu-input > label > select {
+  box-sizing: border-box;
+  display: block;
+  width: 100%; }
+
+.context-menu-input > label > textarea {
+  height: 7em; }
+
+.context-menu-item > .context-menu-list {
+  display: none;
+  /* re-positioned by js */
+  right: -.3em;
+  top: .3em; }
+
+.context-menu-item.context-menu-visible > .context-menu-list {
+  display: block; }
+
+.context-menu-accesskey {
+  text-decoration: underline; }

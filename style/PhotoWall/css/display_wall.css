@@ -1,0 +1,91 @@
+/*展示墙样式*/
+#display_wall{
+	position: fixed;
+	width:  280px;
+	height: 400px;
+	top: 90px;
+	right: 10px;
+	z-index: 10;
+}
+
+/*信息墙样式开始*/
+#info_wall{
+	width: 280px;
+	height: 100px;
+	border: 1px solid white;
+	box-shadow: 1px 1px 1px 1px #cfcece;
+	background-color: white;
+	border-radius:5px;
+	-moz-border-radius:5px;
+}
+.detail_info{
+	float: left;
+	width: 90px;
+	height: 90px;
+	margin: 4px 1.2px;
+	/*background-color: green;*/
+}
+
+.info_center{
+	border-radius:50%;
+}
+
+.detail_info img{
+	width: 90px;
+	height: 90px;
+	border: 1px solid gray;
+	border-radius:50%;
+	object-fit: cover;
+}
+
+
+/*每日一言样式开始*/
+#daily_sentence{
+	width: 280px;
+	text-align:center;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border: 1px solid white;
+	box-shadow: 1px 1px 1px 1px #cfcece;
+	background-color: white;
+	border-radius:5px;
+	-moz-border-radius:5px;
+}
+.daily_sentence_title{
+	margin:6px;
+	font: bold 22px "楷体";
+}
+
+.daily_sentence_content{
+	margin:0;
+	font: normal 18px "仿宋";
+}
+
+/*照片墙样式开始*/
+.photoWall{
+	width:280px;
+	height: 190px;
+	border: 1px solid white;
+	box-shadow: 1px 1px 1px 1px #cfcece;
+	background-color: white;
+	border-radius:5px;
+	-moz-border-radius:5px;
+}
+
+.imgContainer{
+	float:left;
+	margin: 13px;
+	width: 60px;
+	height: 60px;
+	border: 3px solid white;
+	box-shadow: 1px 1px 1px 1px #cfcece;
+}
+  
+.imgContainer img{
+	width:60px;
+	height: 60px;
+	object-fit: cover;
+}
+.secondRow{
+	margin-left: 60px;
+}

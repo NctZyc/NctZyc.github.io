@@ -1,0 +1,27 @@
+.highlight pre {
+  position: relative;
+}
+.highlight pre > span {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 3px;
+  padding:0 10px;
+  font-family: 楷体;
+  font-size: 12px;
+  background: #fff;
+  color: #000;
+  cursor: pointer;
+  display:none;
+  margin:8px 10px;
+  transition: background .5s;
+  -moz-transition: background .5s;
+  -webkit-transition: background .5s;
+  -o-transition: background .5s;
+}
+.highlight pre > span:hover {
+  background: #ddd
+}
+.highlight pre:hover > span {
+  display:block;
+}

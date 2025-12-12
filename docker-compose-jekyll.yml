@@ -1,0 +1,14 @@
+name: jekyll
+services:
+  jekyll:
+    image: jekyll/jekyll:latest
+    container_name: jekyll-dev
+    ports:
+      - "4000:4000"
+    volumes:
+      - /home/lutong/sourceCode/blog:/srv/jekyll
+      - /home/lutong/sourceCode/blog/.gem-cache:/usr/gem  
+    environment:
+      - JEKYLL_ENV=development
+    command: jekyll serve --force-polling --host 0.0.0.0
+    working_dir: /srv/jekyll

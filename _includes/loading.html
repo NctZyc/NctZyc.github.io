@@ -1,0 +1,50 @@
+<!-- _includes/loading.html -->
+<link rel="stylesheet" href="/style/css/loading.css">
+
+<div id="loadBox">
+  <!-- 仅保留柱子动画 -->
+  <div class="loader-bars">
+    <span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span>
+    <span></span><span></span>
+  </div>
+</div>
+
+<script>
+  // 禁用滚动
+  document.documentElement.style.overflow = 'hidden';
+
+  // 定义柱子颜色
+  const colors = [
+    "#b8f1ed", "#f1b8e4", "#b7d28d", "#f1ccb8",
+    "#cb8e85", "#f55066", "#f16d7a", "#f3d64e",
+    "#fe9778", "#de772c", "#ca7497", "#e96a25",
+    "#e37c5b", "#cf8888"
+  ];
+
+  // 应用颜色
+  const spans = document.querySelectorAll('#loadBox .loader-bars span');
+  spans.forEach((span, i) => {
+    span.style.backgroundColor = colors[i] || colors[i % colors.length];
+  });
+
+  // 设置随机背景（可选，保留一点趣味性）
+  const backgroundColors = [
+    'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)',
+    'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',
+    'linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)'
+  ];
+  const loadBox = document.getElementById('loadBox');
+  loadBox.style.background = backgroundColors[Math.floor(Math.random() * backgroundColors.length)];
+
+  // 3秒后自动隐藏
+  setTimeout(() => {
+    loadBox.style.opacity = '0';
+    loadBox.style.transition = 'opacity 0.5s ease';
+    setTimeout(() => {
+      loadBox.style.display = 'none';
+    }, 500);
+    document.documentElement.style.overflow = 'auto';
+  }, 3000);
+</script>

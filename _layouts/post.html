@@ -1,0 +1,84 @@
+---
+layout: default
+---
+
+<article class="main-content page-page" itemscope itemtype="http://schema.org/Article">
+    <div class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            {{ page.title }}
+        </h1>
+        <div class="post-data">
+            <time itemprop="datePublished">{{ page.date | date: "%b %d, %Y" }}</time>
+        </div>
+    </div>
+</article>
+<div class="main-container">
+    <div class="post-container">
+		<div class="navigation" id="navigation">
+            <h1>目录</h1>
+            <ul class="nav sidenav"></ul>
+        </div>
+		<article class="post-content">
+            {{ content }}
+        </article>
+        <div class="post-content">
+         {% include comment.html %}
+        </div>
+    </div>
+</div>
+<div id="display_wall">
+	<!-- 信息展示-->
+	<div id="info_wall">
+	<div class="detail_info"></div>
+	<div class="detail_info info_center"><img src="/style/PhotoWall/images/header.png"></div>
+	<div class="detail_info"></div>
+	</div>
+	<div id="daily_sentence">
+	<p class="daily_sentence_title">每日一言</p>
+	<p class="daily_sentence_content">这个人很懒，什么都没有写……</P>
+	</div>
+	<!-- 照片墙展示-->
+	<!-- {animation:"default"} {animation:"diamond"}  {animation:"turn3d"}  {animation:"flip3d"} {animation:"rotate"} {animation:"fade"} -->
+	<div class="photoWall">
+			<div class="imgContainer">
+				<img src="/style/PhotoWall/images/{{ page.date | date: '%Y-%m-%d' }}/a.jpg"	data-expander='{animation:"default"}'>
+			</div>
+			<div class="imgContainer">
+				<img src="/style/PhotoWall/images/{{ page.date | date: '%Y-%m-%d' }}/b.jpg"	data-expander='{animation:"diamond"}'>
+			</div>
+			<div class="imgContainer">
+				<img src="/style/PhotoWall/images/{{ page.date | date: '%Y-%m-%d' }}/c.jpg"	data-expander='{animation:"turn3d"}'>
+			</div>
+			<div class="imgContainer secondRow">
+				<img src="/style/PhotoWall/images/{{ page.date | date: '%Y-%m-%d' }}/d.jpg"	data-expander='{animation:"flip3d"}'>
+			</div>
+			<div class="imgContainer">
+				<img src="/style/PhotoWall/images/{{ page.date | date: '%Y-%m-%d' }}/e.jpg"	data-expander='{animation:"rotate"}'>
+			</div>				
+			<!--<div class="imgContainer">
+				<img src="images/a.jpg"	data-expander='{animation:"fade"}'>			
+			</div> -->
+	</div>
+</div>
+<script>
+// 接管目录点击事件，防止入栈
+document.addEventListener('click', function (e) {
+  // 精确匹配：点击的元素或其祖先是一个 a[href^="#"]，且该 a 在 .nav.sidenav 内
+  const anchor = e.target.closest('a[href^="#"]');
+  if (!anchor) return;
+
+  // 检查这个 anchor 是否在 .nav.sidenav 容器内
+  const sidenav = anchor.closest('.nav.sidenav');
+  if (!sidenav) return;
+
+  const targetId = anchor.getAttribute('href').substring(1);
+  if (!targetId) return;
+
+  const target = document.getElementById(targetId);
+  if (!target) return;
+
+  e.preventDefault();
+  target.scrollIntoView({ behavior: 'smooth' });
+  history.replaceState(null, '', '#' + targetId);
+});
+</script>
